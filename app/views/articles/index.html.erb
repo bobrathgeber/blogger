@@ -1,3 +1,6 @@
+<%= render partial: 'sidebar_nav' %>
+
+<div class="content_object">
 <h1>All Articles</h1>
 
 <ul id="articles">
@@ -8,4 +11,7 @@
   <% end %>
 </ul>
 <%= link_to "Browse by Tag", tags_path %><br/>
-<%= link_to "Create a New Article", new_article_path, class: "new_article" %>
+<% if logged_in? %>
+  <%= link_to "Create a New Article", new_article_path, class: "new_article" %>
+<% end %>
+</div>
