@@ -21,6 +21,7 @@ class ArticlesController < ApplicationController
     #title: params[:article][:title],
     #body: params[:article][:body])
     @article = Article.new(article_params)
+    @article.author = current_user
     @article.save
     flash.notice = "Article '#{@article.title}' Created!"
     redirect_to article_path(@article)

@@ -1,6 +1,6 @@
 <h1><%= @article.title %></h1>
 <p>
-  Written by <%= @article.author %>
+  Written by <%= link_to @article.author.username, author_path(@article.author_id), class: "article-listing" %>
 </p>
 <% if @article.image.exists? %>
   <p><%= image_tag @article.image.url %></p>

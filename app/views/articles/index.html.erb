@@ -3,7 +3,7 @@
 <div class="content_object">
 <h1>All Articles</h1>
 
-<ul id="articles">
+<ul class="article-listing">
   <% @articles.each do |article| %>
     <li>
       <%= link_to article.title, article_path(article) %>
