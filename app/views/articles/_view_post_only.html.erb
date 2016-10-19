@@ -1,0 +1,14 @@
+<h1><%= link_to @article.title, article_path %></h1>
+<p>
+  Written by <%= link_to @article.author.username, author_path(@article.author_id), class: "article-listing" %>
+</p>
+<% if @article.image.exists? %>
+  <p><%= image_tag @article.image.url %></p>
+<% end %>
+<p class="article-body"><%= @article.body %></p>
+<p>
+  Tags:
+  <% @article.tags.each do |tag| %>
+    <%= link_to tag.name, tag_path(tag), class: "tag"%>
+  <% end %>
+</p>

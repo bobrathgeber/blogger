@@ -1,23 +1,5 @@
-<h1><%= @article.title %></h1>
-<p>
-  Written by <%= link_to @article.author.username, author_path(@article.author_id), class: "article-listing" %>
-</p>
-<% if @article.image.exists? %>
-  <p><%= image_tag @article.image.url %></p>
-<% end %>
-<p class="article-body"><%= @article.body %></p>
-<p>
-  Tags:
-  <% @article.tags.each do |tag| %>
-    <%= link_to tag.name, tag_path(tag), class: "tag"%>
-  <% end %>
-</p>
-<hr>
-<h3>Comments (<%= @article.comments.size %>)</h3>
-<%= render partial: 'comments/form' %>
-<%= render partial: 'articles/comment', collection: @article.comments %>
+<section class="section-type-a">
+<%= render partial: 'articles/view' %>
+</section>
+<br />
 <%= link_to "<< Back to Articles List", articles_path %>
-<% if logged_in? %>
-  <%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Really delete?"} %>
-  <%= link_to "Edit", edit_article_path(@article) %>
-<% end %>

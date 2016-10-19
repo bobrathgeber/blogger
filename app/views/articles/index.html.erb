@@ -1,12 +1,14 @@
 <%= render partial: 'sidebar_nav' %>
 
-<div class="content_object">
+<section class="section-type-a">
 <h1>All Articles</h1>
 
 <ul class="article-listing">
+  <%#render partial: 'view_post_only', collection: @articles %>
   <% @articles.each do |article| %>
     <li>
-      <%= link_to article.title, article_path(article) %>
+      <% @article = article %>
+      <%= render partial: 'articles/view_post_only', object: @article %>
     </li>
   <% end %>
 </ul>

@@ -7,38 +7,40 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <p class="flash">
-      <%= flash.notice %>
-    </p>
+  <header>
 
-  <div id="container">
-    <div id="header">
-      header
-    </div>
-    <div id="nav">
-      <!-- Login block -->
-      <div id = "login">
+  <div id="logo-nav">
+    <%= image_tag("RoboRaLogo_Cropped_Transparent_White.png", size: "126x37", alt: "Roboa Ra Logo") %>
+  </div>
+    <!-- Login block -->
+    <div id = "login">
       <h6>
         <% if logged_in? %>
-          <%= "Logged in as #{current_user.email}" %>
+          <%= "Hello #{current_user.username}"  %><br /><%= "Logged in as #{current_user.email}" %>
           <%= link_to "(logout)", logout_path %>
         <% else %>
           <%= link_to "(login)", login_path %> or <%= link_to "(sign-up)", new_author_path %>
         <% end %>
       </h6>
     </div>
-      <div id="nav-links">
-        <ul>
-          <li><%= link_to "Home", articles_path, class: "new_article" %></li>
-          <% if logged_in? %>
-            <li><%= link_to "Create", new_article_path, class: "new_article" %></li>
-            <li><%= link_to "Account", author_path(current_user.id), class: "new_article" %></li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
+
+
+    <ul id="header-nav">
+      <li><%= link_to "Home", articles_path, class: "nav-link" %></li>
+      <% if logged_in? %>
+        <li><%= link_to "Create", new_article_path, class: "nav-link" %></li>
+        <li><%= link_to "Account", author_path(current_user.id), class: "nav-link" %></li>
+      <% end %>
+    </ul>
+
+
+  </header>
+    <p class="flash">
+      <%= flash.notice %>
+    </p>
+
+  <div id="container">
     <div id="content">
       <%= yield %>
     </div>

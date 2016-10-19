@@ -1,0 +1,149 @@
+$primary_color: #5f7caa;
+$secondary_color: #b3bdce;
+$background_color: #FFF;
+
+html{
+  margin:0;
+  padding:0;
+  border: 0;
+}
+
+body {
+  background-color: $background_color;
+  font-size: 1rem;
+  font-family: Bebas,sans-serif;
+  text-transform:uppercase;
+  padding:0;
+  margin:0;
+  border: 0;
+}
+//HEADER STYLES
+//*************
+header {
+  background-color: #222;
+  height: 70px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  min-width: 400px;
+  text-align: center;
+  vertical-align: bottom;
+}
+
+#login{
+  font-size: 16px;
+  color: white;
+  position:absolute;
+  top: 13px;
+  right:0;
+  vertical-align: bottom;
+  margin-right: 10px;
+  text-align:right;
+}
+
+#login a{
+  text-decoration: none;
+  color: red;
+}
+
+#logo-nav{
+  position: absolute;
+  top: 18px;
+  left: 10px;
+  color: red;
+}
+
+#header-nav {
+  clear:both;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+}
+
+#header-nav li {
+  margin: 15px;
+  display:inline;
+}
+
+#header-nav li a{
+  color: white;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+#header-nav li a:hover{
+  color: green;
+  text-decoration: none;
+}
+
+.nav-link{
+  color:white;
+
+}
+
+.flash {
+  color: black;
+  font-size: 16px;
+}
+
+#container{
+  width: 100%;
+}
+
+#content{
+text-transform: none;
+  max-width: 1080px;
+  margin:auto;
+}
+
+.section-type-a{
+  min-width: 300px;
+  max-width: 1080px;
+  margin:auto;
+  padding: 25px;
+  background-color: #EEE;
+  //font-size: 30px;
+}
+
+.section-type-b{
+  width: 100%;
+  margin:0;
+  background-color: #AAA;
+}
+
+.sidebar{
+  background-color: $secondary_color;
+  width: 300px;
+  float: right;
+  list-style-type: none;
+  border: solid 1px black;
+  border-radius: 5px;
+  clear:right;
+  text-transform:none;
+}
+
+.tag {
+  border-radius: 5px;
+  border: black solid 1px;
+  background-color: #777;
+  text-decoration: none;
+  color: #CCC;
+  padding: 1px 5px;
+}
+
+.tag:hover{
+  color: #00F;
+}
+
+.article-body{
+  border: gray solid 1px;
+  border-radius: 5px;
+  margin: 10px;
+  padding:25px 5px;
+  text-transform:none;
+}
+
+.article-listing{
+  list-style-type: none;
+}
