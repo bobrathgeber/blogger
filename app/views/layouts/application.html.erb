@@ -8,42 +8,47 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-  <header>
-
-  <div id="logo-nav">
-    <%= image_tag("RoboRaLogo_Cropped_Transparent_White.png", size: "126x37", alt: "Roboa Ra Logo") %>
-  </div>
-    <!-- Login block -->
-    <div id = "login">
-      <h6>
-        <% if logged_in? %>
-          <%= "Hello #{current_user.username}"  %><br /><%= "Logged in as #{current_user.email}" %>
-          <%= link_to "(logout)", logout_path %>
-        <% else %>
-          <%= link_to "(login)", login_path %> or <%= link_to "(sign-up)", new_author_path %>
-        <% end %>
-      </h6>
-    </div>
-
-
-    <ul id="header-nav">
-      <li><%= link_to "Home", articles_path, class: "nav-link" %></li>
-      <% if logged_in? %>
-        <li><%= link_to "Create", new_article_path, class: "nav-link" %></li>
-        <li><%= link_to "Account", author_path(current_user.id), class: "nav-link" %></li>
-      <% end %>
-    </ul>
-
-
-  </header>
-    <p class="flash">
-      <%= flash.notice %>
-    </p>
-
   <div id="container">
+    <header>
+      <div id="logo-nav">
+        <%= link_to image_tag("RoboRaLogo_Cropped_Transparent_White.png", size: "126x37", alt: "Roboa Ra Logo"), articles_path %>
+      </div>
+      <div id = "login">
+        <h6>
+          <% if logged_in? %>
+            <%= "Hello #{current_user.username}"  %><br /><%= "Logged in as #{current_user.email}" %>
+            <%= link_to "(logout)", logout_path %>
+          <% else %>
+            <%= link_to "(login)", login_path %> or <%= link_to "(sign-up)", new_author_path %>
+          <% end %>
+        </h6>
+      </div>
+
+      <ul id="header-nav">
+        <li><%= link_to "Home", articles_path, class: "nav-link" %></li>
+        <% if logged_in? %>
+          <li><%= link_to "Create", new_article_path, class: "nav-link" %></li>
+          <li><%= link_to "Account", author_path(current_user.id), class: "nav-link" %></li>
+        <% end %>
+      </ul>
+    </header>
+
     <div id="content">
+      <p class="flash">
+        <%= flash.notice %>
+      </p>
       <%= yield %>
     </div>
+
+    <footer>
+      <ul>
+        <li><%= link_to "About", articles_path, class: "footer-link" %></li>
+        <li><%= link_to "Terms and Conditions", articles_path, class: "footer-link" %></li>
+        <li><%= link_to "Contact", articles_path, class: "footer-link" %></li>
+      </ul>
+      <br />
+      <p class="copyright">Copyright 2016, Robo Ra Games LLC</p>
+    </footer>
   </div>
 </body>
 </html>

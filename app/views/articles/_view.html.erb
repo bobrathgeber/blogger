@@ -1,4 +1,5 @@
-<%= render partial: 'view_post_only' %>
+<%#= render partial: 'view_post_only', collection: @articles, as: :article %>
+<%= render partial: 'view_post_only', locals: {article: @article} %>
 <hr>
 <h3>Comments (<%= @article.comments.size %>)</h3>
 <%= render partial: 'comments/form' %>

@@ -1,19 +1,19 @@
 <%= render partial: 'sidebar_nav' %>
 
-<section class="section-type-a">
-<h1>All Articles</h1>
-
+<!--<h1>All Articles</h1>-->
 <ul class="article-listing">
   <%#render partial: 'view_post_only', collection: @articles %>
+  <% toggle = true %>
   <% @articles.each do |article| %>
-    <li>
-      <% @article = article %>
-      <%= render partial: 'articles/view_post_only', object: @article %>
-    </li>
+    <% if toggle == true %>
+        <li class= "section-type-a"><%= render partial: 'view_post_only', locals: {article: article} %></li>
+      <% else %>
+        <li class= "section-type-b"><%= render partial: 'view_post_only', locals: {article: article} %></li>
+      <%end%>
+      <% toggle = !toggle %>
   <% end %>
 </ul>
 <%= link_to "Browse by Tag", tags_path %><br/>
 <% if logged_in? %>
   <%= link_to "Create a New Article", new_article_path, class: "new_article" %>
 <% end %>
-</div>
